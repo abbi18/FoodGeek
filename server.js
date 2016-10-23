@@ -23,13 +23,9 @@ const insert = (db, callback, collection, document) => {
 
 
 	const login = (db, callback, account) => {
-		const cursor = db.collection('accounts')
+		let cursor = db.collection('accounts')
 		.find(account);
-	   cursor.each((err, doc) => {
-	      assert.equal(err, null);
-	      if(doc != null)
-		      callback(doc);
-	   });
+		cursor.toArray(callback);
 	};
 
 app.use('/', express.static(__dirname + '/'));
@@ -64,10 +60,19 @@ app.post('/login', (req, res) => {
 
 	MongoClient.connect(url, (err, db) => {
 	  assert.equal(null, err);
-	  login(db, (doc) => {
-	  	console.log('doc:',doc);
-	  	res.send(doc);
+	  login(db, (err, documents) => {
 	  	db.close();
+	  	if(err != null)
+	  		console.log(err);
+	  	if(documents.length === 0) {
+	  		console.log('not successful');
+	  		res.send({redirect: 'null'});
+	  	}
+	  	else if(documents.length === 1) {
+	  		console.log('successful');
+	  		res.send({redirect: '/'});
+	  	}
+	  	
 	  }, req.body);
 	});
 

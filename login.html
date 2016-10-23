@@ -149,6 +149,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						 <input id="username" type="text" value="">
 						 <h5>Password:</h5>
 						 <input id="password" type="password" value="">					
+						 <div class="unsuccessful-login"></div>
 						 <input type="submit" value="LOGIN">
 					 </form>
 					<a href="#">Forgot Password ?</a>
@@ -164,8 +165,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					            url: '/login',
 					            data: data
 					        })
-							.done((res) => {
-								console.log(res);
+							.done((data) => {
+				                if(data.redirect != 'null')
+				                    window.location = data.redirect;
+				                else{
+				                	console.log('unsuccessful-login!');
+				                	$('.unsuccessful-login').append('<p style="color: red;">Not able to login: check if username and password is correct.</p>');
+				                }
 							})
 					        .fail((err) => {
 					            console.log('failed to submit!', err);
