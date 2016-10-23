@@ -193,8 +193,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					            url: '/register',
 					            data: data
 					        })
-							.done((res) => {
-								console.log(res);
+							.done(() => {
+				                    window.location = '/';
 							})
 					        .fail((err) => {
 					            console.log('failed to submit!', err);

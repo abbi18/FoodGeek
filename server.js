@@ -48,7 +48,7 @@ app.post('/recipe-add', (req, res) => {
 	  insert(db, () => db.close(), 'recipes', req.body);
 	});
 
-	res.send('successful!');
+	res.send();
 });
 
 app.post('/register', (req, res) => {
@@ -59,7 +59,7 @@ app.post('/register', (req, res) => {
 	  insert(db, () => db.close(), 'accounts', req.body);
 	});
 
-	res.send('successful!');
+	res.redirect('../');
 });
 
 app.post('/login', (req, res) => {
