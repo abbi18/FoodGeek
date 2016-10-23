@@ -40,6 +40,28 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				});
 			});
 		</script>
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  
+		 <script>
+    
+   function search()
+    {
+        var city = ["Pizza", "Burger", "Chowmein", "Pasta", "Udaipur", "Chennai","Banglore","Jamshedpur","Patna","Surat","Srinagar","Chandigarh","Panji","Kanpur","Lucknow"]
+        $( "#search1" ).autocomplete({
+        source: city
+        });
+        
+            
+    }
+	
+	
+	
+	
+</script>
+
 	<!-- start-smoth-scrolling -->
 
 </head>
@@ -58,15 +80,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</ul>
 				</div>
 				<!-- start search-->
+				<div class="menu">
 				    <div class="search-box">
 					    <div id="sb-search" class="sb-search">
 							<form>
-								<input class="sb-search-input" placeholder="Enter your search item..." type="search" name="search" id="search">
+								<input class="sb-search-input" placeholder="Enter your search item..." type="text" id="search1" onkeyup="search()" style="position:relative;" onload="changeBackground('white');">
 								<input class="sb-search-submit" type="submit" value="">
 								<span class="sb-icon-search"> </span>
 							</form>
 						</div>
 				    </div>
+					</div>
+					
 					<!-- search-scripts -->
 					<script src="js/classie.js"></script>
 					<script src="js/uisearch.js"></script>
