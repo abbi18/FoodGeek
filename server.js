@@ -6,7 +6,13 @@ var bodyParser = require('body-parser');
 var MongoClient = require('mongodb').MongoClient;
 var assert = require('assert');
 var ObjectId = require('mongodb').ObjectID;
-var url = 'mongodb://localhost:27017/test';
+var url;
+if(process.env.NODE_ENV === 'development'){
+	url = 'mongodb://localhost:27017/test';
+}
+else if(process.env.NODE_ENV === 'production'){
+	url = 'mongodb://abhinandan:abhinandan@aws-us-east-1-portal.15.dblayer.com:15615/abhinandan-first?ssl=true';
+}
 
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
