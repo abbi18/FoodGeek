@@ -163,7 +163,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				</select>
 			</div>
 		</div>
-		<div class=" last">
+		<div class="submitted clear"></div>
+		<div class="clear" style="margin-bottom: 30px;">
 			<input type="submit" class="register" value="Submit">
 			<input type="reset" class="reset" value="Reset">
 		</div>	
@@ -180,15 +181,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			tag_selector: $('select#tag-selector').val(),
 			email: $('input#email').val(),
 			ingredients_selector: $('select#ingredients-selector').val(),
-			review: $('textarea#message').val(),
 		};
 		$.ajax({
 			type: 'POST',
             url: '/recipe-add',
             data: data
         })
-		.done((res) => {
-			console.log(res);
+		.done(() => {
+        	$('.submitted').append('<p style="color: green; font-size: 17px; margin-left: 10%;">Recipe submitted successfully!.</p>');
 		})
         .fail((err) => {
             console.log('failed to submit!', err);
