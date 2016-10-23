@@ -4,7 +4,9 @@
   "description": ":fork_and_knife::fries:Agile Software Dev. Project:coffee: Full SCRUM Workflow Reports and Professional Software Development of a Food Ordering Website.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-dev": "NODE_ENV=development node server.js",
+    "start": "NODE_ENV=production node server.js"
   },
   "repository": {
     "type": "git",
