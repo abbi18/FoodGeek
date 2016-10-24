@@ -18,9 +18,9 @@ app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 
-const insert = (db, callback, collection, document) => {
+var insert = function(db, callback, collection, document) {
 	db.collection(collection)
-	.insertOne(document, (err, result) => {
+	.insertOne(document, function(err, result) {
 		assert.equal(err, null);
 		console.log("Inserted new", document.constructor.name, "!");
 		callback();
@@ -28,19 +28,19 @@ const insert = (db, callback, collection, document) => {
 };
 
 
-	const login = (db, callback, account) => {
-		let cursor = db.collection('accounts')
+	var login = function(db, callback, account) {
+		var cursor = db.collection('accounts')
 		.find(account);
 		cursor.toArray(callback);
 	};
 
 app.use('/', express.static(__dirname + '/'));
 
-app.get('/', function (req, res) {
+app.get('/', function(req, res) {
   res.sendFile(__dirname+'/index.html');
 });
 
-app.post('/recipe-add', (req, res) => {
+app.post('/recipe-add', function(req, res) {
 	console.log('got a post req!\n', req.body);
 
 	MongoClient.connect(url, (err, db) => {
@@ -51,22 +51,22 @@ app.post('/recipe-add', (req, res) => {
 	res.send();
 });
 
-app.post('/register', (req, res) => {
+app.post('/register', function(req, res) {
 	console.log('got a post req for new account!\n', req.body);
 
-	MongoClient.connect(url, (err, db) => {
+	MongoClient.connect(url, function(err, db) {
 	  assert.equal(null, err);
-	  insert(db, () => db.close(), 'accounts', req.body);
+	  insert(db, function() { db.close(); }, 'accounts', req.body);
 	});
 
 	res.redirect('../');
 });
 
-app.post('/login', (req, res) => {
+app.post('/login', function(req, res) {
 
-	MongoClient.connect(url, (err, db) => {
+	MongoClient.connect(url, function(err, db) {
 	  assert.equal(null, err);
-	  login(db, (err, documents) => {
+	  login(db, function(err, documents) {
 	  	db.close();
 	  	if(err != null)
 	  		console.log(err);
@@ -86,6 +86,6 @@ app.post('/login', (req, res) => {
 	
 });
 
-app.listen(3000, function () {
+app.listen(3000, function() {
   console.log('Food Geek server listening on port 3000!');
 });
