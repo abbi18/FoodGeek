@@ -49,17 +49,46 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     
    function search()
     {
-        var city = ["Pizza", "Burger", "Chowmein", "Pasta", "Udaipur", "Chennai","Banglore","Jamshedpur","Patna","Surat","Srinagar","Chandigarh","Panji","Kanpur","Lucknow"]
+
+	     //    $.ajax({
+		    //       url: '/',
+		    //       type: "POST",
+		    //       // dataType: "jsonp",
+		    //       data: {
+		    //         query: {term: 'c1'}
+		    //       }})
+		    //       .done( ( data ) => {
+		    //       	console.log('data:',data);
+		    //         // response( data.resultArr );
+				  // })
+		    //       .fail((err) => {
+		    //       	console.log('failed to submit!', err);
+		    //       });
+    	console.log("front-end");
+        var city = ["Pizza", "Burger", "Chowmein", "Pasta", "Udaipur", "Chennai","Banglore","Jamshedpur","Patna","Surat","Srinagar","Chandigarh","Panji","Kanpur","Lucknow"];
         $( "#search1" ).autocomplete({
-        source: city
-        });
+	      source: ( request, response ) => {
+	        $.ajax({
+		          url: '/',
+		          type: "POST",
+		          // dataType: "jsonp",
+		          data: {
+		            query: request
+		          }})
+		          .done( ( data ) => {
+		          	// console.log('response:', response);
+		          	console.log('data:',data.resultArr);
+		            response(data.resultArr);
+				  })
+		          .fail((err) => {
+		          	console.log(err);
+		          });
+	        }
+	     // source: city
+		});
         
             
     }
-	
-	
-	
-	
 </script>
 
 	<!-- start-smoth-scrolling -->

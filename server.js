@@ -30,19 +30,27 @@ var insert = function(db, callback, collection, document) {
 };
 
 
-	var login = function(db, callback, account) {
-		var cursor = db.collection('accounts')
-		.find(account);
-		cursor.toArray(callback);
-	};
+var login = function(db, callback, account) {
+	var cursor = db.collection('accounts')
+	.find(account);
+	cursor.toArray(callback);
+};
+
+var search = function(db, callback, query) {
+	var cursor = db.collection('recipeNames')
+	.find({name: {$regex: query}});
+	cursor.toArray(callback);
+}
 
 app.use('/', express.static(__dirname + '/'));
 
-app.get('/', function(req, res) {
-  res.sendFile(__dirname+'/index.html');
+
+app.get('/', function (req, res) {
+	console.log('got req!');
 });
 
-app.post('/recipe-add', function(req, res) {
+
+app.post('/recipe-add', (req, res) => {
 	console.log('got a post req!\n', req.body);
 
 	MongoClient.connect(url, (err, db) => {
@@ -61,10 +69,30 @@ app.post('/register', function(req, res) {
 	  insert(db, function() { db.close(); }, 'accounts', req.body);
 	});
 
-	res.redirect('../');
+	res.send();
+});
+
+app.post('/', function (req, res) {
+	// console.log('req.body:', req.body);
+	// if(req.body.query) {
+	// console.log('term: ',req.body.query.term);
+	MongoClient.connect(url, function(err, db) {
+		console.log('receives req!');
+	  assert.equal(null, err);
+	  search(db, function(err, resultArr) {
+	  	console.log('resultArr:',resultArr);
+	  	// console.log('err', err);
+	  	if(err == null) {
+	  		res.send({resultArr: resultArr.map(function (object, index) { return object.name; })});
+	  	}
+	  	db.close();
+	  	
+	  }, req.body.query.term);
+	});
 });
 
 app.post('/login', function(req, res) {
+
 
 	MongoClient.connect(url, function(err, db) {
 	  assert.equal(null, err);
