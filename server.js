@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
+var cfenv = require('cfenv');
 
 // set up mongodb
 var MongoClient = require('mongodb').MongoClient;
@@ -86,6 +87,15 @@ app.post('/login', (req, res) => {
 	
 });
 
-app.listen(3000, function () {
-  console.log('Food Geek server listening on port 3000!');
-});
+if(process.env.NODE_ENV === 'production') {
+	let appEnv = cfenv.getAppEnv();
+	app.listen(appEnv.port, appEnv.bind, () => {
+	  console.log("server starting on " + appEnv.url);
+	});
+}
+else if(process.env.NODE_ENV === 'development') {
+	app.listen(3000, function () {
+	  console.log('Food Geek server listening on port 3000!');
+	});
+
+}
