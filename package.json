@@ -20,6 +20,7 @@
   "homepage": "https://github.com/ayushoriginal/FoodGeek#readme",
   "dependencies": {
     "body-parser": "^1.15.2",
+    "cfenv": "^1.0.3",
     "express": "^4.14.0",
     "mongodb": "^2.2.10"
   }
