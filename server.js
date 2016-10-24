@@ -12,7 +12,8 @@ if(process.env.NODE_ENV === 'development'){
 	url = 'mongodb://localhost:27017/test';
 }
 else if(process.env.NODE_ENV === 'production'){
-	url = 'mongodb://abhinandan:abhinandan@aws-us-east-1-portal.15.dblayer.com:15615/abhinandan-first?ssl=true';
+	// url = 'mongodb://abhinandan:abhinandan@aws-us-east-1-portal.15.dblayer.com:15615/abhinandan-first?ssl=true';
+	url = 'mongodb://abhinandan:abhinandan@aws-us-east-1-portal.15.dblayer.com:15615,aws-us-east-1-portal.16.dblayer.com:15615/abhinandan-first?ssl=true';
 }
 
 app.use(bodyParser.json()); // support json encoded bodies
