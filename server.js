@@ -42,6 +42,12 @@ var search = function(db, callback, query) {
 	cursor.toArray(callback);
 }
 
+var getRecipes = function(db, callback) {
+	var cursor = db.collection('recipeNames')
+	.find();
+	cursor.toArray(callback);
+}
+
 app.use('/', express.static(__dirname + '/'));
 
 
@@ -88,6 +94,22 @@ app.post('/', function (req, res) {
 	  	db.close();
 	  	
 	  }, req.body.query.term);
+	});
+});
+
+app.post('/menu', function(req, res) {
+	MongoClient.connect(url, function(err, db) {
+		console.log('receives req!');
+	  assert.equal(null, err);
+	  getRecipes(db, function(err, resultArr) {
+	  	console.log('resultArr:',resultArr);
+	  	if(err == null) {
+	  		console.log(resultArr);
+	  		res.send({resultArr: resultArr});
+	  	}
+	  	db.close();
+	  	
+	  });
 	});
 });
 
