@@ -49,6 +49,11 @@ var getRecipes = function(db, callback) {
 	cursor.toArray(callback);
 }
 
+// app.use(function (req, res, next) {
+//     console.log("first middle ware");                                                                                                             
+//     next();
+// });
+
 app.use('/', express.static(__dirname + '/'));
 
 
@@ -83,19 +88,21 @@ app.post('/', function (req, res) {
 	// console.log('req.body:', req.body);
 	// if(req.body.query) {
 	// console.log('term: ',req.body.query.term);
-	MongoClient.connect(url, function(err, db) {
-		console.log('receives req!');
-	  assert.equal(null, err);
-	  search(db, function(err, resultArr) {
-	  	console.log('resultArr:',resultArr);
-	  	// console.log('err', err);
-	  	if(err == null) {
-	  		res.send({resultArr: resultArr.map(function (object, index) { return object.name; })});
-	  	}
-	  	db.close();
-	  	
-	  }, req.body.query.term);
-	});
+	if(req.body.query) {
+		MongoClient.connect(url, function(err, db) {
+			console.log('receives req!');
+		  assert.equal(null, err);
+		  search(db, function(err, resultArr) {
+		  	console.log('resultArr:',resultArr);
+		  	// console.log('err', err);
+		  	if(err == null) {
+		  		res.send({resultArr: resultArr.map(function (object, index) { return object.name; })});
+		  	}
+		  	db.close();
+		  	
+		  }, req.body.query.term);
+		});
+	}
 });
 
 app.post('/menu', function(req, res) {
