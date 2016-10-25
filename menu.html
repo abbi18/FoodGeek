@@ -150,10 +150,15 @@ window.onload = () => {
           	console.log('data:',data.resultArr);
           	data.resultArr.forEach((recipe, index) => {
           		$('.show-data').append(
-          			'<div>'+
-          			'<p style="color: red;">'+index+'. '+recipe.name+'</p>'+
-          			'<img src="'+recipe.image+'"height="100" width="120"'+'>'+
-          			'</div>'
+          			'<div class="order-top">'+
+          			'<li class="im-g" height="155" width="275" ><a href="#"><img style="height: 100%; width: 100%; object-fit: contain" src="'+recipe.image+'" class="img-responsive" alt=""></a></li>'+
+          			'<li class="data">'+
+          			'<h4>'+recipe.name+'</h4>'+
+          			'</li>'+
+					'<li class="bt-nn">'+
+						'<a class="hvr-shutter-in-horizontal button" href="orders.html">EXPLORE</a>'+
+					'</li>'+
+					'<div class="clearfix"></div>'
           		);
           	});
         	// $('.show-data').append('<p style="color: red;">'+recipe.name+'</p>');
