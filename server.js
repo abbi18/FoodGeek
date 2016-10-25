@@ -43,7 +43,7 @@ var search = function(db, callback, query) {
 }
 
 var getRecipes = function(db, callback) {
-	var cursor = db.collection('recipeNames')
+	var cursor = db.collection('recipes')
 	.find();
 	cursor.toArray(callback);
 }

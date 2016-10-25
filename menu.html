@@ -149,7 +149,12 @@ window.onload = () => {
           	// console.log('response:', response);
           	console.log('data:',data.resultArr);
           	data.resultArr.forEach((recipe, index) => {
-          		$('.show-data').append('<p style="color: red;">'+index+'. '+recipe.name+'</p>');
+          		$('.show-data').append(
+          			'<div>'+
+          			'<p style="color: red;">'+index+'. '+recipe.name+'</p>'+
+          			'<img src="'+recipe.image+'"height="100" width="120"'+'>'+
+          			'</div>'
+          		);
           	});
         	// $('.show-data').append('<p style="color: red;">'+recipe.name+'</p>');
             // response(data.resultArr);
