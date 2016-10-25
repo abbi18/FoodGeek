@@ -37,8 +37,9 @@ var login = function(db, callback, account) {
 };
 
 var search = function(db, callback, query) {
-	var cursor = db.collection('recipeNames')
-	.find({name: {$regex: query}});
+	console.log('query:',query);
+	var cursor = db.collection('recipes')
+	.find({name: new RegExp(query, 'i') });
 	cursor.toArray(callback);
 }
 

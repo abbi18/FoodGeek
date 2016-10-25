@@ -67,6 +67,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     	console.log("front-end");
         var city = ["Pizza", "Burger", "Chowmein", "Pasta", "Udaipur", "Chennai","Banglore","Jamshedpur","Patna","Surat","Srinagar","Chandigarh","Panji","Kanpur","Lucknow"];
         $( "#search1" ).autocomplete({
+        	delay: 1000,
 	      source: ( request, response ) => {
 	        $.ajax({
 		          url: '/',
