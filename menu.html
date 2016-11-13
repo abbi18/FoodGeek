@@ -146,14 +146,21 @@ window.onload = () => {
             query: ''
           }})
           .done( ( data ) => {
-          	// console.log('response:', response);
-          	console.log('data:',data.resultArr);
           	data.resultArr.forEach((recipe, index) => {
+          		var extensions = ['png', 'jpg', 'jpeg'];
+          		var image = 'http://130.211.52.161/tradeo-content/themes/nucleare-pro/images/no-image-box.png';
+          		extensions.forEach(function(extension) {
+          			if(recipe.image.includes(extension)) {
+          				image = recipe.image;
+          			}
+          		});
           		$('.show-data').append(
           			'<div class="order-top">'+
-          			'<li class="im-g" height="155" width="275" ><a href="#"><img style="height: 100%; width: 100%; object-fit: contain" src="'+recipe.image+'" class="img-responsive" alt=""></a></li>'+
+          			'<li class="im-g" height="155" width="275" ><a href="#"><img style="height: 100%; width: 100%; object-fit: contain" src="'+image+'" class="img-responsive" alt="No image!"></a></li>'+
           			'<li class="data">'+
           			'<h4>'+recipe.name+'</h4>'+
+          			'<p>'+recipe.category+'</p>'+
+          			'<p>'+recipe.restaurant+'</p>'+
           			'</li>'+
 					'<li class="bt-nn">'+
 						'<a class="hvr-shutter-in-horizontal button" href="orders.html">ORDER NOW</a>'+
