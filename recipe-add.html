@@ -110,63 +110,123 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <h1 class="header-agileits w3layouts w3 w3l agileinfo" style="margin-top: 60px;margin-bottom: 60px">Add Recipe</h1>
 <div class="content-w3ls">
 	<form action="/recipe-add" id="addRecipeForm">
-		<div class="form-wthree1 wthree w3-agileits agileits-w3layouts agile w3-agile">		
-			
-			<div class="form-control"> 
-				<label class="header">Menu Item name <span>:</span></label>
-				<input type="text" id="firstname" name="firstname" placeholder="" title="Please enter Item Name" required="">
+		<div id="main">
+			<div id="general">
+				<div class="form-wthree1 wthree w3-agileits agileits-w3layouts agile w3-agile">		
+					
+					<div class="form-control"> 
+						<label class="header">Menu Item name <span>:</span></label>
+						<input type="text" id="firstname" name="firstname" placeholder="" title="Please enter Item Name" required="">
+					</div>
+					
+					<div class="form-control"> 
+						<label class="header">Category<span>:</span></label>
+						<input type="text" id="category" name="category" placeholder="Category" title="Please enter Category" required="">
+					</div>
+					
+					<div class="form-control"> 
+						<label class="header">Restaurant<span>:</span></label>
+						<input type="text" id="restaurant" name="restaurant" placeholder="" title="Please enter Restaurant" required="">
+					</div>
+					<div class="form-control"> 
+						<label class="header">Image<span>:</span></label>
+						<input type="text" id="image" name="image" placeholder="" title="Please enter Image" required="">
+					</div>
+				</div>
+				
+				<div class="form-wthree2 wthree w3-agileits agileits-w3layouts agile w3-agile">
+					
+					<div class="form-control">
+						<label class="header">Tags<span>:</span></label>
+						<select name="tag-selector" id="tag-selector">
+							<option value="Mexican" selected>Mexican</option>
+							<option value="Italian">Italian</option>
+							<option value="French">French</option>
+							<option value="Spanish">Spanish</option>
+							<option value="Indian">Indian</option>
+							<option value="Spicy">Spicy</option>
+							<option value="Gourmet">Gourmet</option>
+							<option value="Sugar">Sugar-free</option>
+							<option value="Light">Light</option>
+						</select>
+					</div>
+					
+					<div class="form-control">	
+						<label class="header">Email Address <span>:</span></label>
+						<input type="email" id="email" name="email" placeholder="mail@example.com" title="Please enter a Valid Email Address" required="">
+					</div>
+					
+					<div class="form-control">
+						<label class="header">Ingredients<span>:</span></label>
+						<select name="ingredients-selector" id="ingredients-selector">
+							<option value="Chicken" selected>Chicken</option>
+							<option value="Vegetables">Vegetables</option>
+							<option value="Eggs">Eggs</option>
+							<option value="Fish">Fish</option>
+							<option value="Milk">Milk</option>
+							<option value="Paneer">Paneer</option>
+						</select>
+					</div>
+				</div>
 			</div>
-			
-			<div class="form-control"> 
-				<label class="header">Category<span>:</span></label>
-				<input type="text" id="category" name="category" placeholder="Category" title="Please enter Category" required="">
-			</div>
-			
-			<div class="form-control"> 
-				<label class="header">Restaurant<span>:</span></label>
-				<input type="text" id="restaurant" name="restaurant" placeholder="" title="Please enter Restaurant" required="">
-			</div>
-			<div class="form-control"> 
-				<label class="header">Image<span>:</span></label>
-				<input type="text" id="image" name="image" placeholder="" title="Please enter Image" required="">
+			<div id="break" style="border: 2px solid white;"></div>
+			<div id="nutritional">
+				<div class="form-wthree1 wthree w3-agileits agileits-w3layouts agile w3-agile">
+					
+					<div class="form-control"> 
+						<label class="header">Total Fat (g)<span>:</span></label>
+						<input type="text" id="firstname" name="total-fat" placeholder="" title="Please enter Item Name" required="">
+					</div>
+					<div class="form-control"> 
+						<label class="header">Cholesterol (mg)<span>:</span></label>
+						<input type="text" id="firstname" name="total-fat" placeholder="" title="Please enter Item Name" required="">
+					</div>
+					<div class="form-control"> 
+						<label class="header">Sodium (mg)<span>:</span></label>
+						<input type="text" id="firstname" name="total-fat" placeholder="" title="Please enter Item Name" required="">
+					</div>
+															<div class="form-control"> 
+						<label class="header">Carbohydrate (g)<span>:</span></label>
+						<input type="text" id="firstname" name="total-fat" placeholder="" title="Please enter Item Name" required="">
+					</div>
+					<div class="form-control"> 
+						<label class="header">Fibre (g)<span>:</span></label>
+						<input type="text" id="firstname" name="total-fat" placeholder="" title="Please enter Item Name" required="">
+					</div>
+					<div class="form-control"> 
+						<label class="header">Sugar (g)<span>:</span></label>
+						<input type="text" id="firstname" name="total-fat" placeholder="" title="Please enter Item Name" required="">
+					</div>										
+				</div>				
+				<div class="form-wthree2 wthree w3-agileits agileits-w3layouts agile w3-agile">
+					<div class="form-control"> 
+						<label class="header">Saturated Fat (g)<span>:</span></label>
+						<input type="text" id="firstname" name="total-fat" placeholder="" title="Please enter Item Name" required="">
+					</div>
+					<div class="form-control"> 
+						<label class="header">Protein (g):<span>:</span></label>
+						<input type="text" id="firstname" name="total-fat" placeholder="" title="Please enter Item Name" required="">
+					</div>	
+					<div class="form-control"> 
+						<label class="header">Vitamin A (%)<span>:</span></label>
+						<input type="text" id="firstname" name="total-fat" placeholder="" title="Please enter Item Name" required="">
+					</div>	
+					<div class="form-control"> 
+						<label class="header">Vitamin C (%)<span>:</span></label>
+						<input type="text" id="firstname" name="total-fat" placeholder="" title="Please enter Item Name" required="">
+					</div>	
+					<div class="form-control"> 
+						<label class="header">Calcium (%)<span>:</span></label>
+						<input type="text" id="firstname" name="total-fat" placeholder="" title="Please enter Item Name" required="">
+					</div>	
+					<div class="form-control"> 
+						<label class="header">Iron (%)<span>:</span></label>
+						<input type="text" id="firstname" name="total-fat" placeholder="" title="Please enter Item Name" required="">
+					</div>																												
+				</div>			
 			</div>
 		</div>
-		
-		<div class="form-wthree2 wthree w3-agileits agileits-w3layouts agile w3-agile">
-			
-			<div class="form-control">
-				<label class="header">Tags<span>:</span></label>
-				<select name="tag-selector" id="tag-selector">
-					<option value="Mexican" selected>Mexican</option>
-					<option value="Italian">Italian</option>
-					<option value="French">French</option>
-					<option value="Spanish">Spanish</option>
-					<option value="Indian">Indian</option>
-					<option value="Spicy">Spicy</option>
-					<option value="Gourmet">Gourmet</option>
-					<option value="Sugar">Sugar-free</option>
-					<option value="Light">Light</option>
-				</select>
-			</div>
-			
-			<div class="form-control">	
-				<label class="header">Email Address <span>:</span></label>
-				<input type="email" id="email" name="email" placeholder="mail@example.com" title="Please enter a Valid Email Address" required="">
-			</div>
-			
-			<div class="form-control">
-				<label class="header">Ingredients<span>:</span></label>
-				<select name="ingredients-selector" id="ingredients-selector">
-					<option value="Chicken" selected>Chicken</option>
-					<option value="Vegetables">Vegetables</option>
-					<option value="Eggs">Eggs</option>
-					<option value="Fish">Fish</option>
-					<option value="Milk">Milk</option>
-					<option value="Paneer">Paneer</option>
-				</select>
-			</div>
-		</div>
-		<div class="submitted clear"></div>
+		<!-- <div class="submitted clear"></div> -->
 		<div class="clear" style="margin-bottom: 30px;">
 			<input type="submit" class="register" value="Submit">
 			<input type="reset" class="reset" value="Reset">
