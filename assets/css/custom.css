@@ -1,0 +1,12 @@
+#main {
+    border: 2px solid white;
+    display: flex;
+    padding-top: 20px;
+    padding-left: 5px;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+#nutritional, #general {
+    padding: 10px;
+}
