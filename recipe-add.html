@@ -175,58 +175,58 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					
 					<div class="form-control"> 
 						<label class="header">Total Fat (g)<span>:</span></label>
-						<input type="text" id="firstname" name="total-fat" placeholder="" title="Please enter Item Name" required="">
+						<input type="text" id="firstname" class="total-fat" name="total-fat" placeholder="" title="Please enter Item Name" required="">
 					</div>
 					<div class="form-control"> 
 						<label class="header">Cholesterol (mg)<span>:</span></label>
-						<input type="text" id="firstname" name="total-fat" placeholder="" title="Please enter Item Name" required="">
+						<input type="text" id="firstname" class="cholesterol" name="cholesterol" placeholder="" title="Please enter Item Name" required="">
 					</div>
 					<div class="form-control"> 
 						<label class="header">Sodium (mg)<span>:</span></label>
-						<input type="text" id="firstname" name="total-fat" placeholder="" title="Please enter Item Name" required="">
+						<input type="text" id="firstname" class="sodium" name="sodium" placeholder="" title="Please enter Item Name" required="">
 					</div>
-															<div class="form-control"> 
+					<div class="form-control"> 
 						<label class="header">Carbohydrate (g)<span>:</span></label>
-						<input type="text" id="firstname" name="total-fat" placeholder="" title="Please enter Item Name" required="">
+						<input type="text" id="firstname" class="carbohydrate" name="carbohydrate" placeholder="" title="Please enter Item Name" required="">
 					</div>
 					<div class="form-control"> 
 						<label class="header">Fibre (g)<span>:</span></label>
-						<input type="text" id="firstname" name="total-fat" placeholder="" title="Please enter Item Name" required="">
+						<input type="text" id="firstname" class="fibre" name="fibre" placeholder="" title="Please enter Item Name" required="">
 					</div>
 					<div class="form-control"> 
 						<label class="header">Sugar (g)<span>:</span></label>
-						<input type="text" id="firstname" name="total-fat" placeholder="" title="Please enter Item Name" required="">
+						<input type="text" id="firstname" class="sugar" name="sugar" placeholder="" title="Please enter Item Name" required="">
 					</div>										
 				</div>				
 				<div class="form-wthree2 wthree w3-agileits agileits-w3layouts agile w3-agile">
 					<div class="form-control"> 
 						<label class="header">Saturated Fat (g)<span>:</span></label>
-						<input type="text" id="firstname" name="total-fat" placeholder="" title="Please enter Item Name" required="">
+						<input type="text" id="firstname" class="saturated-fat" name="saturated-fat" placeholder="" title="Please enter Item Name" required="">
 					</div>
 					<div class="form-control"> 
 						<label class="header">Protein (g):<span>:</span></label>
-						<input type="text" id="firstname" name="total-fat" placeholder="" title="Please enter Item Name" required="">
+						<input type="text" id="firstname" class="protein" name="protein" placeholder="" title="Please enter Item Name" required="">
 					</div>	
 					<div class="form-control"> 
 						<label class="header">Vitamin A (%)<span>:</span></label>
-						<input type="text" id="firstname" name="total-fat" placeholder="" title="Please enter Item Name" required="">
+						<input type="text" id="firstname" class="vitamin-a" name="vitamin-a" placeholder="" title="Please enter Item Name" required="">
 					</div>	
 					<div class="form-control"> 
 						<label class="header">Vitamin C (%)<span>:</span></label>
-						<input type="text" id="firstname" name="total-fat" placeholder="" title="Please enter Item Name" required="">
+						<input type="text" id="firstname" class="vitamin-c" name="vitamin-c" placeholder="" title="Please enter Item Name" required="">
 					</div>	
 					<div class="form-control"> 
 						<label class="header">Calcium (%)<span>:</span></label>
-						<input type="text" id="firstname" name="total-fat" placeholder="" title="Please enter Item Name" required="">
+						<input type="text" id="firstname" class="calcium" name="calcium" placeholder="" title="Please enter Item Name" required="">
 					</div>	
 					<div class="form-control"> 
 						<label class="header">Iron (%)<span>:</span></label>
-						<input type="text" id="firstname" name="total-fat" placeholder="" title="Please enter Item Name" required="">
+						<input type="text" id="firstname" class="iron" name="iron" placeholder="" title="Please enter Item Name" required="">
 					</div>																												
 				</div>			
 			</div>
 		</div>
-		<!-- <div class="submitted clear"></div> -->
+		<div class="submitted clear"></div>
 		<div class="clear" style="margin-bottom: 30px;">
 			<input type="submit" class="register" value="Submit">
 			<input type="reset" class="reset" value="Reset">
@@ -245,6 +245,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			tag_selector: $('select#tag-selector').val(),
 			email: $('input#email').val(),
 			ingredients_selector: $('select#ingredients-selector').val(),
+			iron: $('input.iron').val(),
+			calcium: $('input.calcium').val(),
+			vitamin_c: $('input.vitamin-c').val(),
+			vitamin_a: $('input.vitamin-a').val(),
+			protein: $('input.protein').val(),
+			saturated_fat: $('input.saturated-fat').val(),
+			cholesterol: $('input.cholesterol').val(),
+			sodium: $('input.sodium').val(),
+			carbohydrate: $('input.carbohydrate').val(),
+			fibre: $('input.fibre').val(),
+			sugar: $('input.sugar').val(),
+			total_fat: $('input.total-fat').val(),
 		};
 		$.ajax({
 			type: 'POST',
