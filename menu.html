@@ -135,7 +135,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</div>
 	</div>
 </div>
-
+<style>
+#field {
+	color: black;
+	font-weight: 700;
+}
+#value {
+	color: green;
+}
+</style>
 <script>
 window.onload = () => {
     $.ajax({
@@ -159,9 +167,29 @@ window.onload = () => {
           			'<li class="im-g" height="155" width="275" ><a href="#"><img style="height: 100%; width: 100%; object-fit: contain" src="'+image+'" class="img-responsive" alt="No image!"></a></li>'+
           			'<li class="data">'+
           			'<h4>'+recipe.name+'</h4>'+
-          			'<p>'+recipe.category+'</p>'+
-          			'<p>'+recipe.restaurant+'</p>'+
-          			'</li>'+
+          			'<div style="display: flex">'+
+          			'<div style="width: 50%;">'+
+          			'<p>'+'<span id="field">Category: </span>'+'<span id="value">'+recipe.category+'</span>'+'</p>'+
+          			'<p>'+'<span id="field">Restaurant: </span>'+'<span id="value">'+recipe.restaurant+'</span>'+'</p>'+        
+					'<p>'+'<span id="field">Tag: </span>'+'<span id="value">'+recipe.tag_selector+'</span>'+'</p>'+
+					'<p>'+'<span id="field">Main Ingredient: </span>'+'<span id="value">'+recipe.ingredients_selector+'</span>'+'</p>'+
+					'<p>'+'<span id="field">Iron (%): </span>'+'<span id="value">'+recipe.iron+'</span>'+'</p>'+
+					'<p>'+'<span id="field">Calcium (%): </span>'+'<span id="value">'+recipe.calcium+'</span>'+'</p>'+
+					'<p>'+'<span id="field">Vitamin C (%): </span>'+'<span id="value">'+recipe.vitamin_c+'</span>'+'</p>'+
+					'<p>'+'<span id="field">Vitamin A (%): </span>'+'<span id="value">'+recipe.vitamin_a+'</span>'+'</p>'+
+					'</div>'+
+					'<div style="width: 50%;">'+
+					'<p>'+'<span id="field">Protein (g): </span>'+'<span id="value">'+recipe.protein+'</span>'+'</p>'+
+					'<p>'+'<span id="field">Saturated Fat (g): </span>'+'<span id="value">'+recipe.saturated_fat+'</span>'+'</p>'+
+					'<p>'+'<span id="field">Sugar (g): </span>'+'<span id="value">'+recipe.sugar+'</span>'+'</p>'+
+					'<p>'+'<span id="field">Fibre (g): </span>'+'<span id="value">'+recipe.fibre+'</span>'+'</p>'+
+					'<p>'+'<span id="field">Carbohydrate (g): </span>'+'<span id="value">'+recipe.carbohydrate+'</span>'+'</p>'+
+					'<p>'+'<span id="field">Sodium (mg): </span>'+'<span id="value">'+recipe.sodium+'</span>'+'</p>'+
+					'<p>'+'<span id="field">Cholesterol (mg): </span>'+'<span id="value">'+recipe.cholesterol+'</span>'+'</p>'+
+					'<p>'+'<span id="field">Total Fat (g): </span>'+'<span id="value">'+recipe.total_fat+'</span>'+'</p>'+
+					'</div>'+
+					'</div>'+
+
 					'<li class="bt-nn">'+
 						'<a class="hvr-shutter-in-horizontal button" href="orders.html">ORDER NOW</a>'+
 					'</li>'+
