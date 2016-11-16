@@ -1,0 +1,25 @@
+var widgetOwner = '0';var widgetType = '003';var widgetInstance = '14792503144925';var widgetStyle = '1';var widgetFontColor = '000';var widgetHeight = '40';var widgetDiv = document.getElementById(widgetInstance);
+widgetDiv.style.display = "block";
+widgetDiv.style.position = "relative";
+var frameId = 'frameWidget'+widgetInstance;
+var parentWidth = '100';
+if(widgetDiv){
+    var parentWidth = widgetDiv.offsetWidth;
+}
+document.write('<iframe class="wEframe" id="' + frameId + '" style="overflow:hidden" src="http://widget-engine.com/widgets/003/index.php?widgetOwner=0&widgetType=003&widgetInstance=14792503144925&widgetStyle=1&widgetFontColor=000&widgetHeight=40&parentWidth='+ parentWidth +'" height="'+ widgetHeight +'" width="100%" frameborder="0">');
+document.write('<p>Your browser does not support iframes.</p>');
+document.write('</iframe>');
+document.write('<style>div.wE {position: relative;} a.wE{color: #000; background:url(http://widget-engine.com/assets/img/info.png)no-repeat; font-size: 0em; display: block; width: 16px; position: absolute; top: 5px; right: 0px; height: 16px;}</style>');if(document.getElementsByClassName('wEframe').length < 2){
+    window.addEventListener( "message",
+        function (e) {
+            if(e.origin !== 'http://widget-engine.com'){ return; } 
+            var message = e.data;
+            var split = message.split('~');
+            if (split[0] == 'height'){
+                var thisFrameId = 'frameWidget'+split[1];
+                var thisHeight = split[2];
+                document.getElementById(thisFrameId).height = thisHeight;
+            }
+        },
+    false);
+}
